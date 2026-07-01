@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { MessageCircleMore, Repeat, Send, ThumbsUp } from "lucide-react";
 import { IPostDocument } from "@/models/post.model";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/lib/mock-clerk-client";
 import CommentInput from "./CommentInput";
 import Comments from "./Comments";
 import { toast } from "react-toastify";
@@ -104,7 +104,7 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
       </div>
       {commentOpen && (
         <div className="p-4">
-          <CommentInput postId={post._id} />
+          <CommentInput postId={post._id.toString()} />
           <Comments post={post} />
         </div>
       )}

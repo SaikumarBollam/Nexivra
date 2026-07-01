@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ProfilePhoto from "./shared/ProfilePhoto";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/lib/mock-clerk-client";
 import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
 import { Badge } from "./ui/badge";
@@ -41,7 +41,7 @@ const Post = ({ post }: { post: IPostDocument }) => {
           {loggedInUser && (
             <Button
               onClick={() => {
-                const res = deletePostAction(post._id);
+                const res = deletePostAction(post._id.toString());
               }}
               size={"icon"}
               className="rounded-full"

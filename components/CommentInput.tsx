@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ProfilePhoto from "./shared/ProfilePhoto";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/lib/mock-clerk-client";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { createCommentAction } from "@/lib/serveractions";

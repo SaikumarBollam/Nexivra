@@ -8,42 +8,49 @@ interface NAVITEMS {
 const newsItems: NAVITEMS[] = [
   {
     heading: "E-retailer retag health drinks",
-    subHeading: "4h ago - 345 readers"
+    subHeading: "4h ago · 345 readers"
   },
   {
     heading: "Lets transport raises $22 million",
-    subHeading: "4h ago - 323 readers"
+    subHeading: "4h ago · 323 readers"
   },
   {
-    heading: "Casual waer is in at India Inc",
-    subHeading: "4h ago - 234 readers"
+    heading: "Casual wear is in at India Inc",
+    subHeading: "4h ago · 234 readers"
   },
   {
-    heading: "Snaller cities go on loans",
-    subHeading: "4h ago - 112 readers"
+    heading: "Smaller cities go on loans",
+    subHeading: "4h ago · 112 readers"
   },
 ]
 
 const News = () => {
   return (
-    <div className='hidden md:block w-[25%] bg-white h-fit rounded-lg border border-gray-300'>
-      <div className='flex items-center justify-between p-3'>
-        <h1 className='font-medium'>LinkedIn News</h1>
-        <Info size={18} />
-      </div>
-      <div>
-{
-  newsItems.map((item, index)=>{
-    return (
-      <div key={index} className='px-3 py-2 hover:bg-gray-200 hover:cursor-pointer'>
-        <h1 className='text-sm font-medium'>{item.heading}</h1>
-        <p className='text-xs text-gray-600'>{item.subHeading}</p>
-      </div>
-    )
-  })
-}
+    <div className='hidden lg:block w-full bg-white h-fit rounded-xl border border-gray-200 shadow-sm p-4 space-y-3.5'>
+      <div className='flex items-center justify-between border-b border-gray-50 pb-2.5'>
+        <h2 className='font-bold text-gray-900 text-sm tracking-tight'>Nexivra News</h2>
+        <Info size={15} className="text-gray-400 hover:text-gray-600 cursor-pointer transition-colors" />
       </div>
       
+      <div className='space-y-3'>
+        {newsItems.map((item, index) => (
+          <div 
+            key={index} 
+            className='group flex gap-2.5 cursor-pointer rounded-lg p-1.5 -mx-1.5 hover:bg-gray-50 transition-all'
+          >
+            {/* Dynamic visual indicator dot */}
+            <div className='w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0 group-hover:scale-125 group-hover:bg-indigo-600 transition-all' />
+            <div className='min-w-0 flex-1'>
+              <h3 className='text-xs font-semibold text-gray-800 leading-snug group-hover:text-indigo-600 transition-colors line-clamp-2'>
+                {item.heading}
+              </h3>
+              <p className='text-[10px] text-gray-400 mt-0.5 font-medium'>
+                {item.subHeading}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

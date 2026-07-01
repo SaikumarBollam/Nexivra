@@ -1,0 +1,7 @@
+{
+  "name": "Nexivra",
+  "description": "Nexivra — AI-powered alumni network platform by Rooman: invite alumni, build profiles, post & connect (internal LinkedIn), paid mentorship, job opportunities, events, and StartupVarsity.",
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -2,7 +2,7 @@
 
 import { Post } from "@/models/post.model";
 import { IUser } from "@/models/user.model";
-import { currentUser } from "@clerk/nextjs/server"
+import { currentUser } from "./mock-clerk-server"
 import { v2 as cloudinary } from 'cloudinary';
 import connectDB from "./db";
 import { revalidatePath } from "next/cache";
@@ -106,11 +106,59 @@ export const createCommentAction = async (postId: string, formData: FormData) =>
             user: userDatabase,
         });
 
-        post.comments?.push(comment._id);
+        post.comments?.push(comment._id as any);
         await post.save();
 
         revalidatePath("/");
     } catch (error) {
         throw new Error('An error occurred')
+    }
+}
+
+export const getDatabaseMetrics = async () => {
+    const startTime = Date.now();
+    try {
+        await connectDB();
+        const queryStartTime = Date.now();
+        
+        const posts = await Post.find();
+        const comments = await Comment.find();
+        
+        const queryEndTime = Date.now();
+        const dbLatency = queryEndTime - queryStartTime;
+        
+        const postCount = Array.isArray(posts) ? posts.length : 0;
+        const commentCount = Array.isArray(comments) ? comments.length : 0;
+        
+        const uniqueUserIds = new Set<string>();
+        if (Array.isArray(posts)) {
+            posts.forEach((p: any) => {
+                if (p.user && p.user.userId) {
+                    uniqueUserIds.add(p.user.userId);
+                }
+            });
+        }
+        
+        return {
+            success: true,
+            postCount,
+            commentCount,
+            userCount: uniqueUserIds.size || 1,
+            dbLatency,
+            totalLatency: Date.now() - startTime,
+            timestamp: new Date().toISOString()
+        };
+    } catch (error: any) {
+        console.error("Failed to get database metrics:", error);
+        return {
+            success: false,
+            error: error.message || "Failed to query database",
+            postCount: 0,
+            commentCount: 0,
+            userCount: 0,
+            dbLatency: 0,
+            totalLatency: Date.now() - startTime,
+            timestamp: new Date().toISOString()
+        };
     }
 }
