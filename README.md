@@ -1,4 +1,4 @@
-# Linkedin Clone
+# Nexivra 
 
 This repository hosts the source code for a nexivra built with Next.js, TypeScript, MongoDB, and Tailwind CSS. The application replicates core LinkedIn functionalities, providing a platform for users to interact with posts and manage their accounts.
 
