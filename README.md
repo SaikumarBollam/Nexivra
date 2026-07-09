@@ -1,10 +1,10 @@
 # Linkedin Clone
 
-This repository hosts the source code for a LinkedIn clone built with Next.js, TypeScript, MongoDB, and Tailwind CSS. The application replicates core LinkedIn functionalities, providing a platform for users to interact with posts and manage their accounts.
+This repository hosts the source code for a nexivra built with Next.js, TypeScript, MongoDB, and Tailwind CSS. The application replicates core LinkedIn functionalities, providing a platform for users to interact with posts and manage their accounts.
 
 ## Demo
 
-- Live Preview: [https://linkedin-clone-by-shan.vercel.app/](https://linkedin-clone-by-shan.vercel.app/)
+- Live Preview: [Nexivra](https://mayava.online/)
 
 ## Features
 
@@ -81,4 +81,4 @@ Just raise an issue, and we will discuss it.
 
 ## Feedback
 
-If you have any feedback, please reach out to me [here](https://www.linkedin.com/in/muhammad-shan-full-stack-developer/)
+If you have any feedback, please reach out to me [here](https://www.linkedin.com/in/saikumarbollam/)
