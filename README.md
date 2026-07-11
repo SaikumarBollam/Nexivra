@@ -31,12 +31,12 @@ This repository hosts the source code for a nexivra built with Next.js, TypeScri
 Clone the project
 
 ```bash
-    https://github.com/Mshandev/Linkedin-Clone.git
+    https://github.com/SaikumarBollam/Nexivra
 ```
 Go to the project directory
 
 ```bash
-    cd Linkedin-Clone
+    cd Nexivra
 ```
 Install dependencies
 
